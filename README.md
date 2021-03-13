@@ -13,6 +13,7 @@ BS1 <- read.csv("BS1.csv")
 
 ```
 
+The following is a series of simple classification models. I'm applying basic models to the breast cancer data set to generate some predicitons and measure the quality of the models.
 
 ```{r}
 library(e1071)
@@ -181,7 +182,7 @@ str(myrf.matrix)
 
 ```
 
-
+At this point, I'm going to combine all the predictions outputs and then, using a majority paradigm, combine the predictions and choose the binary classifier that's the sum of what the models picked. 
 
 
 ```{r}
@@ -218,6 +219,7 @@ head(ensemble.totals.df)
 
 ```
 
+I had to do a workaround on some of the headings. 
 
 ```{r}
 #convert benign and malignant columns to integers
@@ -232,8 +234,6 @@ m.num <- m.num-1
 Etotals1 <- cbind(ensemble.totals.df,b.num,m.num)
 
 dim(Etotals1)
-
-
 
 ```
 
@@ -257,7 +257,7 @@ for(i in 1:length(Etotals1[,1])){
 ```
 
 
-
+I'm going to clean the table up now. 
 
 
 ```{r}
